@@ -11,7 +11,7 @@
 #include "DFRobot_C4001.h"
 
 namespace esphome {
-namespace C4001 {
+namespace DFRobot_C4001 {
 
 DFRobot_C4001::DFRobot_C4001(){}
 DFRobot_C4001::~DFRobot_C4001(){}
@@ -841,5 +841,5 @@ int16_t DFRobot_C4001_UART::readReg(uint8_t reg, uint8_t *data, uint8_t len)
   reg = len;
   return i;
 }
-} //namespace C4001
+} //namespace DFRobot_C4001
 } //namespace esphome
