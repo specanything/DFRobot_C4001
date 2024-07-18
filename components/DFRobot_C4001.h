@@ -20,6 +20,8 @@
 #include "HardwareSerial.h"
 
 #endif
+namespace esphome {
+namespace C4001 {
 
 /**
  * @struct sSensorStatus_t
@@ -454,3 +456,6 @@ private:
   uint8_t _txpin;
 };
 #endif
+
+}  // namespace C4001
+}  // namespace esphome
