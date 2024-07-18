@@ -21,7 +21,7 @@
 
 #endif
 namespace esphome {
-namespace C4001 {
+namespace DFRobot_C4001 {
 
 /**
  * @struct sSensorStatus_t
@@ -457,5 +457,5 @@ private:
 };
 #endif
 
-}  // namespace C4001
+}  // namespace DFRobot_C4001
 }  // namespace esphome
