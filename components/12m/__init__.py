@@ -11,16 +11,16 @@ MULTI_CONF = True
 
 
 DFRobot_C4001_ns = cg.esphome_ns.namespace("DFRobot_C4001")
-DfrobotSen0395Component = DFRobot_C4001_ns.class_(
-    "DfrobotSen0395Component", cg.Component
+DFRobot_C4001Component = DFRobot_C4001_ns.class_(
+    "DFRobot_C4001Component", cg.Component
 )
 
 # Actions
-DfrobotSen0395ResetAction = DFRobot_C4001_ns.class_(
-    "DfrobotSen0395ResetAction", automation.Action
+DFRobot_C4001ResetAction = DFRobot_C4001_ns.class_(
+    "DFRobot_C4001ResetAction", automation.Action
 )
-DfrobotSen0395SettingsAction = DFRobot_C4001_ns.class_(
-    "DfrobotSen0395SettingsAction", automation.Action
+DFRobot_C4001SettingsAction = DFRobot_C4001_ns.class_(
+    "DFRobot_C4001SettingsAction", automation.Action
 )
 
 CONF_DFRobot_C4001_ID = "DFRobot_C4001_id"
@@ -33,7 +33,7 @@ CONF_OUTPUT_LATENCY = "output_latency"
 CONFIG_SCHEMA = cv.All(
     cv.Schema(
         {
-            cv.GenerateID(): cv.declare_id(DfrobotSen0395Component),
+            cv.GenerateID(): cv.declare_id(DFRobot_C4001Component),
         }
     ).extend(uart.UART_DEVICE_SCHEMA)
 )
@@ -47,10 +47,10 @@ async def to_code(config):
 
 @automation.register_action(
     "DFRobot_C4001.reset",
-    DfrobotSen0395ResetAction,
+    DFRobot_C4001ResetAction,
     maybe_simple_id(
         {
-            cv.GenerateID(): cv.use_id(DfrobotSen0395Component),
+            cv.GenerateID(): cv.use_id(DFRobot_C4001Component),
         }
     ),
 )
@@ -120,7 +120,7 @@ def range_segment_list(input):
 
 MMWAVE_SETTINGS_SCHEMA = cv.Schema(
     {
-        cv.GenerateID(): cv.use_id(DfrobotSen0395Component),
+        cv.GenerateID(): cv.use_id(DFRobot_C4001Component),
         cv.Optional(CONF_FACTORY_RESET): cv.templatable(cv.boolean),
         cv.Optional(CONF_DETECTION_SEGMENTS): range_segment_list,
         cv.Optional(CONF_OUTPUT_LATENCY): {
@@ -151,7 +151,7 @@ MMWAVE_SETTINGS_SCHEMA = cv.Schema(
 
 @automation.register_action(
     "DFRobot_C4001.settings",
-    DfrobotSen0395SettingsAction,
+    DFRobot_C4001SettingsAction,
     MMWAVE_SETTINGS_SCHEMA,
 )
 async def DFRobot_C4001_settings_to_code(config, action_id, template_arg, args):
