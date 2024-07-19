@@ -10,20 +10,20 @@ AUTO_LOAD = ['binary_sensor']
 MULTI_CONF = True
 
 
-dfrobot_sen0395_ns = cg.esphome_ns.namespace("dfrobot_sen0395")
-DfrobotSen0395Component = dfrobot_sen0395_ns.class_(
+DFRobot_C4001_ns = cg.esphome_ns.namespace("DFRobot_C4001")
+DfrobotSen0395Component = DFRobot_C4001_ns.class_(
     "DfrobotSen0395Component", cg.Component
 )
 
 # Actions
-DfrobotSen0395ResetAction = dfrobot_sen0395_ns.class_(
+DfrobotSen0395ResetAction = DFRobot_C4001_ns.class_(
     "DfrobotSen0395ResetAction", automation.Action
 )
-DfrobotSen0395SettingsAction = dfrobot_sen0395_ns.class_(
+DfrobotSen0395SettingsAction = DFRobot_C4001_ns.class_(
     "DfrobotSen0395SettingsAction", automation.Action
 )
 
-CONF_DFROBOT_SEN0395_ID = "dfrobot_sen0395_id"
+CONF_DFRobot_C4001_ID = "DFRobot_C4001_id"
 
 CONF_DELAY_AFTER_DETECT = "delay_after_detect"
 CONF_DELAY_AFTER_DISAPPEAR = "delay_after_disappear"
@@ -46,7 +46,7 @@ async def to_code(config):
 
 
 @automation.register_action(
-    "dfrobot_sen0395.reset",
+    "DFRobot_C4001.reset",
     DfrobotSen0395ResetAction,
     maybe_simple_id(
         {
@@ -54,7 +54,7 @@ async def to_code(config):
         }
     ),
 )
-async def dfrobot_sen0395_reset_to_code(config, action_id, template_arg, args):
+async def DFRobot_C4001_reset_to_code(config, action_id, template_arg, args):
     var = cg.new_Pvariable(action_id, template_arg)
     await cg.register_parented(var, config[CONF_ID])
 
@@ -150,11 +150,11 @@ MMWAVE_SETTINGS_SCHEMA = cv.Schema(
 
 
 @automation.register_action(
-    "dfrobot_sen0395.settings",
+    "DFRobot_C4001.settings",
     DfrobotSen0395SettingsAction,
     MMWAVE_SETTINGS_SCHEMA,
 )
-async def dfrobot_sen0395_settings_to_code(config, action_id, template_arg, args):
+async def DFRobot_C4001_settings_to_code(config, action_id, template_arg, args):
     var = cg.new_Pvariable(action_id, template_arg)
     await cg.register_parented(var, config[CONF_ID])
 
