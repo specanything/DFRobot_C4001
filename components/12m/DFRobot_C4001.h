@@ -9,8 +9,20 @@
  * @url https://github.com/DFRobot/DFRobot_C4001
  */
 
-#include "esphome/core/component.h"
+#pragma once
+
 #include "esphome/components/uart/uart.h"
+#include "esphome/core/automation.h"
+#include "esphome/core/component.h"
+
+#ifdef USE_BINARY_SENSOR
+#include "esphome/components/binary_sensor/binary_sensor.h"
+#endif
+#ifdef USE_SWITCH
+#include "esphome/components/switch/switch.h"
+#endif
+
+#include "commands.h"
 
 #ifndef __DFROBOT_C4001_H__
 #define __DFROBOT_C4001_H__
