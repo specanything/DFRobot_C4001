@@ -9,8 +9,8 @@
  * @url https://github.com/DFRobot/DFRobot_C4001
  */
 
-#include "esphome.h"
-#include <string>
+#include "esphome/core/component.h"
+#include "esphome/components/uart/uart.h"
 
 #ifndef __DFROBOT_C4001_H__
 #define __DFROBOT_C4001_H__
