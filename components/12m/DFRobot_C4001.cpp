@@ -10,6 +10,9 @@
  */
 #include "DFRobot_C4001.h"
 
+#include "esphome/core/helpers.h"
+#include "esphome/core/log.h"
+
 namespace esphome {
 namespace DFRobot_C4001 {
 
